@@ -24,9 +24,8 @@ __version_string__ = '.'.join(str(x) for x in __version__)
 __author__ = 'Doug Napoleone, Samuel Marks, Eric Frederich'
 __email__ = 'doug.napoleone+plantuml@gmail.com'
 
-
 plantuml_alphabet = string.digits + string.ascii_uppercase + string.ascii_lowercase + '-_'
-base64_alphabet   = string.ascii_uppercase + string.ascii_lowercase + string.digits + '+/'
+base64_alphabet = string.ascii_uppercase + string.ascii_lowercase + string.digits + '+/'
 b64_to_plantuml = maketrans(base64_alphabet.encode('utf-8'), plantuml_alphabet.encode('utf-8'))
 
 
@@ -224,7 +223,7 @@ def main():
     args = _build_parser().parse_args()
     pl = PlantUML(args.server)
     print(list(map(lambda filename: {'filename': filename,
-                                'gen_success': pl.processes_file(filename, directory=args.out)}, args.files)))
+                                     'gen_success': pl.processes_file(filename, directory=args.out)}, args.files)))
 
 
 if __name__ == '__main__':
